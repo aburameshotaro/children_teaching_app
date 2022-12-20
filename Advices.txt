@@ -1,0 +1,12 @@
+Change ui to py
+- pyuic5 -o pyfilename.py design.ui
+
+Change qrc images to py 
+- Pyrcc5 "Obrazki strings.qrc" -o obrazki_strings.py
+
+How to fast change file for ready to go:
+- change form or MainWindow variable for self with ctr + R
+- heritance from QtWidgets.QMainWindow
+- change obrazki
+- self.setCentralWidget(self.centralwidget) w setupUi
+
