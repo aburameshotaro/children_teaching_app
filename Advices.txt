@@ -1,12 +1,14 @@
 Change ui to py
-- pyuic5 -o pyfilename.py design.ui
+- pyuic5 -o variables.py variables.ui
 
 Change qrc images to py 
 - Pyrcc5 "Obrazki strings.qrc" -o obrazki_strings.py
 
 How to fast change file for ready to go:
 - change form or MainWindow variable for self with ctr + R
-- heritance from QtWidgets.QMainWindow
+- inheritance from QtWidgets.QMainWindow
 - change obrazki
 - self.setCentralWidget(self.centralwidget) w setupUi
+For variables_ui.py
+-self.pushButtonGrunwald = DropButton(self.layoutWidget, question="bitwa_pod_grunwaldem_rok")
 

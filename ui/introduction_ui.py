@@ -13,11 +13,10 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 class Ui_Form(QtWidgets.QMainWindow):
     def setupUi(self):
-        self.setObjectName("Form")
+        self.setObjectName("self")
         self.resize(581, 399)
         self.tabWidgetIntroduction = QtWidgets.QTabWidget(self)
         self.tabWidgetIntroduction.setObjectName("tabWidgetIntroduction")
-        
         self.tab_welcome = QtWidgets.QWidget()
         self.tab_welcome.setObjectName("tab_welcome")
         self.gridLayout_2 = QtWidgets.QGridLayout(self.tab_welcome)
@@ -27,7 +26,7 @@ class Ui_Form(QtWidgets.QMainWindow):
         self.gridLayout_2.addWidget(self.TextEditWelcome, 1, 0, 1, 1)
         self.WelcomeImg = QtWidgets.QLabel(self.tab_welcome)
         self.WelcomeImg.setText("")
-        self.WelcomeImg.setPixmap(QtGui.QPixmap(":/Introduction1/welcome.gif"))
+        self.WelcomeImg.setPixmap(QtGui.QPixmap(":/Introduction1/introductionWelcomeWorld.png"))
         self.WelcomeImg.setObjectName("WelcomeImg")
         self.gridLayout_2.addWidget(self.WelcomeImg, 2, 0, 1, 1)
         self.tabWidgetIntroduction.addTab(self.tab_welcome, "")
@@ -84,14 +83,15 @@ class Ui_Form(QtWidgets.QMainWindow):
         self.gridLayout_6.addWidget(self.OrdersImg, 1, 0, 1, 1)
         self.tabWidgetIntroduction.addTab(self.tab_orders, "")
 
+        self.setCentralWidget(self.tabWidgetIntroduction)
+
         self.retranslateUi()
         self.tabWidgetIntroduction.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(self)
 
     def retranslateUi(self):
         _translate = QtCore.QCoreApplication.translate
-        self.setCentralWidget(self.tabWidgetIntroduction)
-        self.setWindowTitle(_translate("Form", "Podstawowe informacje"))
+        self.setWindowTitle(_translate("Form", "Wprowadzenie"))
         self.TextEditWelcome.setPlainText(_translate("Form", "Witajcie drodzy ucznowie!\n"
 "Przygotowałem tę aplikację, aby pomóc wam w nauce programowania. Mam nadzieję, że sprawi wam ona przyjemność i pobudzi wasze mózgi do myślenia. \n"
 "Zaczniemy od całkowitych podstaw, więc bez obaw. Żadna wiedza nie jest potrzebna na start. Przedstawione tutaj materiały przeznaczone są głównie dla dzieci w wieku szkolnym, ale osoby dorosłe również mogą z nich skorzystać.\n"
@@ -115,12 +115,3 @@ class Ui_Form(QtWidgets.QMainWindow):
 "Co więcej komputery przeważnie nie będą się zastanawiały nad sensownością naszych rozkazów. Będą je wykonywały jeden po drugim zgodnie z tym jak je rozplanujemy. To do nas leży weryfikacja, czy komputerowi uda się osiągnąć zamierzony cel, jeśli będzie podążął według stworzonego przez nas planu."))
         self.tabWidgetIntroduction.setTabText(self.tabWidgetIntroduction.indexOf(self.tab_orders), _translate("Form", "Rozkazy"))
 import obrazki.obrazki_introduction
-
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    ui = Ui_Form()
-    ui.setupUi()
-    ui.show()
-    sys.exit(app.exec_())

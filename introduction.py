@@ -9,4 +9,11 @@ from ui.introduction_ui import Ui_Form
 
 
 class IntroductionWindow(Ui_Form):
-    pass
+    def retranslateUi(self):
+        super().retranslateUi()
+        
+        self.tabWidgetIntroduction.currentChanged.connect(self.onChange)
+
+    def onChange(self, i):
+        if i == 3:
+            print("Jakiś tekst. Konsola działa!")

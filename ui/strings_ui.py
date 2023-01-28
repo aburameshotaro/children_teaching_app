@@ -15,7 +15,8 @@ class Ui_Form(QtWidgets.QMainWindow):
     def setupUi(self):
         self.setObjectName("Form")
         self.resize(649, 494)
-
+        self.gridLayout = QtWidgets.QGridLayout(self)
+        self.gridLayout.setObjectName("gridLayout")
         self.tabWidgetTextVariables = QtWidgets.QTabWidget(self)
         self.tabWidgetTextVariables.setObjectName("tabWidgetTextVariables")
         self.tab_welcome = QtWidgets.QWidget()
@@ -75,9 +76,9 @@ class Ui_Form(QtWidgets.QMainWindow):
         self.tabWidgetTextVariables.addTab(self.tab_string_as_array, "")
         self.tab_exercise1 = QtWidgets.QWidget()
         self.tab_exercise1.setObjectName("tab_exercise1")
-        self.pushButtonReady1 = QtWidgets.QPushButton(self.tab_exercise1)
-        self.pushButtonReady1.setGeometry(QtCore.QRect(230, 250, 131, 23))
-        self.pushButtonReady1.setObjectName("pushButtonReady1")
+        self.pushButtonExercise1 = QtWidgets.QPushButton(self.tab_exercise1)
+        self.pushButtonExercise1.setGeometry(QtCore.QRect(230, 250, 131, 23))
+        self.pushButtonExercise1.setObjectName("pushButtonExercise1")
         self.lineEditExercise1 = QtWidgets.QLineEdit(self.tab_exercise1)
         self.lineEditExercise1.setGeometry(QtCore.QRect(150, 200, 311, 20))
         self.lineEditExercise1.setObjectName("lineEditExercise1")
@@ -85,7 +86,7 @@ class Ui_Form(QtWidgets.QMainWindow):
         self.TextEditExercise1.setGeometry(QtCore.QRect(120, 90, 381, 71))
         self.TextEditExercise1.setObjectName("TextEditExercise1")
         self.labelExercise1 = QtWidgets.QLabel(self.tab_exercise1)
-        self.labelExercise1.setGeometry(QtCore.QRect(270, 330, 47, 13))
+        self.labelExercise1.setGeometry(QtCore.QRect(120, 320, 371, 31))
         self.labelExercise1.setText("")
         self.labelExercise1.setObjectName("labelExercise1")
         self.tabWidgetTextVariables.addTab(self.tab_exercise1, "")
@@ -115,12 +116,15 @@ class Ui_Form(QtWidgets.QMainWindow):
         self.TextEditExercise2 = QtWidgets.QPlainTextEdit(self.tab_exercise2)
         self.TextEditExercise2.setGeometry(QtCore.QRect(110, 40, 381, 71))
         self.TextEditExercise2.setObjectName("TextEditExercise2")
-        self.pushButtonRunExercise2 = QtWidgets.QPushButton(self.tab_exercise2)
-        self.pushButtonRunExercise2.setGeometry(QtCore.QRect(260, 230, 75, 23))
-        self.pushButtonRunExercise2.setObjectName("pushButtonRunExercise2")
+        self.pushButtonExercise2 = QtWidgets.QPushButton(self.tab_exercise2)
+        self.pushButtonExercise2.setGeometry(QtCore.QRect(260, 230, 75, 23))
+        self.pushButtonExercise2.setObjectName("pushButtonExercise2")
         self.lineEdit = QtWidgets.QLineEdit(self.tab_exercise2)
         self.lineEdit.setGeometry(QtCore.QRect(182, 170, 221, 20))
         self.lineEdit.setObjectName("lineEdit")
+        self.labelExercise2 = QtWidgets.QLabel(self.tab_exercise2)
+        self.labelExercise2.setGeometry(QtCore.QRect(90, 300, 391, 31))
+        self.labelExercise2.setObjectName("labelExercise2")
         self.tabWidgetTextVariables.addTab(self.tab_exercise2, "")
         self.tab_extra_info = QtWidgets.QWidget()
         self.tab_extra_info.setObjectName("tab_extra_info")
@@ -143,11 +147,12 @@ class Ui_Form(QtWidgets.QMainWindow):
         self.ExtraInfoImg.setObjectName("ExtraInfoImg")
         self.gridLayout_6.addWidget(self.ExtraInfoImg, 1, 0, 1, 1)
         self.tabWidgetTextVariables.addTab(self.tab_extra_info, "")
-        self.setCentralWidget(self.tabWidgetTextVariables)
+        self.gridLayout.addWidget(self.tabWidgetTextVariables, 0, 0, 1, 1)
 
         self.retranslateUi()
         self.tabWidgetTextVariables.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(self)
+        self.setCentralWidget(self.tabWidgetTextVariables) 
 
     def retranslateUi(self):
         _translate = QtCore.QCoreApplication.translate
@@ -178,7 +183,7 @@ class Ui_Form(QtWidgets.QMainWindow):
 "Możemy też wziąć większy fragment tekstu. Ten mechanizm również wykorzystuje nawiasy kwadratowe.\n"
 "krol_polnocy[0:3] - tym razem zaczynamy od 0 literki (pierwszej) i kończymy na 3 (czwartej, ale czwartej już nie wliczamy), czyli otrzymamy słowo \"Jon\"."))
         self.tabWidgetTextVariables.setTabText(self.tabWidgetTextVariables.indexOf(self.tab_string_as_array), _translate("Form", "Tekst jako pojedyńcze literki"))
-        self.pushButtonReady1.setText(_translate("Form", "Gotowe"))
+        self.pushButtonExercise1.setText(_translate("Form", "Gotowe"))
         self.lineEditExercise1.setPlaceholderText(_translate("Form", "Wpisz działanie"))
         self.TextEditExercise1.setPlainText(_translate("Form", "Pierwsze zadanie!\n"
 "Spróbuj wyciągnąć ze zmiennej quote słowo niebo za pomocą nawiasów kwadratowych.\n"
@@ -195,7 +200,8 @@ class Ui_Form(QtWidgets.QMainWindow):
         self.TextEditExercise2.setPlainText(_translate("Form", "Drugie zadanie!\n"
 "Policz jaki będzie wynik następującego działania:\n"
 "len(\"Geralt\") * len(\"Ciri\") / 2"))
-        self.pushButtonRunExercise2.setText(_translate("Form", "Uruchom"))
+        self.pushButtonExercise2.setText(_translate("Form", "Uruchom"))
+        self.labelExercise2.setText(_translate("Form", ""))
         self.tabWidgetTextVariables.setTabText(self.tabWidgetTextVariables.indexOf(self.tab_exercise2), _translate("Form", "Zadanie 2"))
         self.TextEditExtraInfo.setPlainText(_translate("Form", "Python zapewnia nam dodatkowo kilka funkcji, które możemy wykonać na naszym tekście. Tym razem mamy trochę inny zapis. Zaczynamy od naszego tekstu, a później po kropce piszemy nazwę funkcji i nawiasy.\n"
 "\"ala ma kota\".upper() - zamienia litery na duże\n"
@@ -208,16 +214,6 @@ class Ui_Form(QtWidgets.QMainWindow):
 "Jeśli natomiast chcemy zmienić zawartość zmiennej, to trzeba by było to zrobić tak:\n"
 "zdanie = zdanie.upper()"))
         self.tabWidgetTextVariables.setTabText(self.tabWidgetTextVariables.indexOf(self.tab_extra_info), _translate("Form", "Dodatkowe funkcje"))
-import obrazki.obrazki_introduction
-import obrazki.obrazki_orders
-import obrazki.obrazki_variables
+
 import obrazki.obrazki_strings
 
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    ui = Ui_Form()
-    ui.setupUi()
-    ui.show()
-    sys.exit(app.exec_())
