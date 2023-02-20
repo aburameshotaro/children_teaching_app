@@ -12,10 +12,13 @@ def division(second_number):
         liczba1 = 100
         liczba2 = second_number
         print(liczba1/liczba2)
+        return liczba1/liczba2
     except TypeError:
         print('Dzielenie wykonywane jest na liczbach')
+        return "TypeError"
     except ZeroDivisionError:
         print('Pamiętaj cholero nie dziel przez zero')
+        return "ZeroDivisionError"
 
 class ExceptionsWindow(Ui_Form):
     def retranslateUi(self):

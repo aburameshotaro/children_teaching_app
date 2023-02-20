@@ -19,7 +19,7 @@ class OrdersWindow(Ui_MainWindow):
     def firstExerciseExecute(self):
         answer = self.lineEditExercise1.text().strip()
         self.labelExercise1.resize(500,20)
-        if re.match(r"^print\('[0-9a-zA-ZąęóśżźćńłĘÓŁŚĄŻŹĆŃ]*'\)$", answer.replace(" ","")) or re.match(r"^print\(\"[0-9a-zA-ZąęóśżźćńłĘÓŁŚĄŻŹĆŃ]*\"\)$", answer.replace(" ","")):
+        if re.match(r"^print\('[0-9a-zA-ZąęóśżźćńłĘÓŁŚĄŻŹĆŃ()!@#$%^&\*;:\{\}\[\].,<>/?]*'\)$", answer.replace(" ","")) or re.match(r"^print\(\"[0-9a-zA-ZąęóśżźćńłĘÓŁŚĄŻŹĆŃ()!@#$%^&\*;:\{\}\[\].,<>/?]*\"\)$", answer.replace(" ","")):
             exec(answer)
             self.labelExercise1.setText("Brawo! Udało się. Zobacz rezultat swojego kodu w konsoli(to czarne ustrojstwo za programem)")
         else:

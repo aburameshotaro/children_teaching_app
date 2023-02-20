@@ -19,7 +19,6 @@ class DropButton(QtWidgets.QPushButton):
             event.acceptProposedAction()
 
     def dropEvent(self, event):
-        pos = event.pos()
         text = event.mimeData().text().strip()
         self.answer = text
         event.acceptProposedAction()

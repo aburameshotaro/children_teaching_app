@@ -15,9 +15,11 @@ class Ui_Form(QtWidgets.QMainWindow):
     def setupUi(self):
         self.setObjectName("Form")
         self.resize(654, 529)
-        self.gridLayout = QtWidgets.QGridLayout(self)
+        self.centralwidget = QtWidgets.QWidget(self)
+        self.centralwidget.setObjectName("centralwidget")
+        self.gridLayout = QtWidgets.QGridLayout(self.centralwidget)
         self.gridLayout.setObjectName("gridLayout")
-        self.tabWidgetTextVariables = QtWidgets.QTabWidget(self)
+        self.tabWidgetTextVariables = QtWidgets.QTabWidget(self.centralwidget)
         self.tabWidgetTextVariables.setObjectName("tabWidgetTextVariables")
         self.tab_welcome = QtWidgets.QWidget()
         self.tab_welcome.setObjectName("tab_welcome")
@@ -190,7 +192,7 @@ class Ui_Form(QtWidgets.QMainWindow):
         self.retranslateUi()
         self.tabWidgetTextVariables.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(self)
-        self.setCentralWidget(self.tabWidgetTextVariables)
+        self.setCentralWidget(self.centralwidget)
 
     def retranslateUi(self):
         _translate = QtCore.QCoreApplication.translate
